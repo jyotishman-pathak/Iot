@@ -32,6 +32,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { useParams, usePathname } from "next/navigation"
 
 const data = {
   user: {
@@ -42,27 +43,27 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
-      title: "Lifecycle",
-      url: "#",
-      icon: IconListDetails,
-    },
-    {
-      title: "Analytics",
-      url: "#",
+      title: "Sensor Readings",
+      url: "/readings",
       icon: IconChartBar,
     },
     {
-      title: "Projects",
-      url: "#",
-      icon: IconFolder,
+      title: "Logs",
+      url: "/logs",
+      icon: IconDatabase,
     },
     {
-      title: "Team",
-      url: "#",
+      title: "Sand Quality",
+      url: "/quality",
+      icon: IconReport,
+    },
+    {
+      title: "Operators",
+      url: "/operators",
       icon: IconUsers,
     },
   ],
@@ -71,49 +72,50 @@ const data = {
       title: "Capture",
       icon: IconCamera,
       isActive: true,
-      url: "#",
+      url: "/capture",
       items: [
         {
-          title: "Active Proposals",
-          url: "#",
+          title: "Live Feed",
+          url: "/capture/live",
         },
         {
-          title: "Archived",
-          url: "#",
+          title: "Snapshots",
+          url: "/capture/snapshots",
         },
       ],
     },
     {
-      title: "Proposal",
+      title: "Analysis Reports",
       icon: IconFileDescription,
-      url: "#",
+      url: "/reports",
       items: [
         {
-          title: "Active Proposals",
-          url: "#",
+          title: "Daily Reports",
+          url: "/reports/daily",
         },
         {
           title: "Archived",
-          url: "#",
+          url: "/reports/archived",
         },
       ],
     },
     {
-      title: "Prompts",
+      title: "AI Insights",
       icon: IconFileAi,
-      url: "#",
+      url: "/ai",
       items: [
         {
-          title: "Active Proposals",
-          url: "#",
+          title: "Anomalies",
+          url: "/ai/anomalies",
         },
         {
-          title: "Archived",
-          url: "#",
+          title: "Recommendations",
+          url: "/ai/recommendations",
         },
       ],
     },
   ],
+  
   navSecondary: [
     {
       title: "Settings",
@@ -134,23 +136,26 @@ const data = {
   documents: [
     {
       name: "Data Library",
-      url: "#",
+      url: "/data-library",
       icon: IconDatabase,
     },
     {
-      name: "Reports",
-      url: "#",
-      icon: IconReport,
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
+      name: "Sand Types",
+      url: "/sand-types",
       icon: IconFileWord,
     },
-  ],
+    {
+      name: "Sensor Manuals",
+      url: "/manuals",
+      icon: IconFileDescription,
+    },
+  ]
+  
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+const pathaname = usePathname()
+console.log(pathaname)
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -162,13 +167,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">Data Logger</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
+        
         <NavMain items={data.navMain} />
         <NavDocuments items={data.documents} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
