@@ -6,10 +6,26 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../lib/generated/prisma"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+usedId String @id @default(cuid())
+email String @unique
+name String 
+
+}
+
+model SensorReading {
+  id          Int      @id @default(autoincrement())
+  sensor      String
+  temperature Float
+  humidity    Float
+  pressure    Float
+  createdAt   DateTime @default(now())
 }
