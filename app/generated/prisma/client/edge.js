@@ -130,7 +130,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/crafters/Documents/io/prisma/app/generated/prisma/client",
+      "value": "/home/crafters/Documents/io/app/generated/prisma/client",
       "fromEnvVar": null
     },
     "config": {
@@ -148,10 +148,10 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../../../.env",
-    "schemaEnvPath": "../../../../../.env"
+    "rootEnvPath": "../../../../.env",
+    "schemaEnvPath": "../../../../.env"
   },
-  "relativePath": "../../../..",
+  "relativePath": "../../../../prisma",
   "clientVersion": "6.6.0",
   "engineVersion": "f676762280b54cd07c770017ed3711ddde35f37a",
   "datasourceNames": [
@@ -167,8 +167,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"app/generated/prisma/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  userId String @id @default(cuid())\n  email  String @unique\n  name   String\n}\n\nmodel SensorReading {\n  id          Int      @id @default(autoincrement())\n  sensor      String\n  temperature Float\n  humidity    Float\n  pressure    Float\n  createdAt   DateTime @default(now())\n}\n",
-  "inlineSchemaHash": "95f506fd2e62e2ae866ee05e51c742be24e3854017fdca10dcdbed67e362f12f",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/generated/prisma/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  userId String @id @default(cuid())\n  email  String @unique\n  name   String\n}\n\nmodel SensorReading {\n  id          Int      @id @default(autoincrement())\n  sensor      String\n  temperature Float\n  humidity    Float\n  pressure    Float\n  createdAt   DateTime @default(now())\n}\n",
+  "inlineSchemaHash": "0f02cb499e15fa610e3fc3adf91456d39f1319cbd5c26a17a0f2d11f68b1fe70",
   "copyEngine": true
 }
 config.dirname = '/'
