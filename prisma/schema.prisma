@@ -15,10 +15,9 @@ datasource db {
 }
 
 model User {
-usedId String @id @default(cuid())
-email String @unique
-name String 
-
+  userId String @id @default(cuid()) 
+  email String @unique
+  name String 
 }
 
 model SensorReading {
