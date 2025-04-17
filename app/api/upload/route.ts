@@ -18,7 +18,7 @@ export async function POST(req: Request) {
         temperature: data.BME.temperature,
         humidity: data.BME.humidity,
         pressure: data.BME.pressure,
-        
+        createdAt: new Date(),
       },
     });
 

@@ -29,4 +29,5 @@ model SensorReading {
   humidity    Float
   pressure    Float
   createdAt   DateTime @default(now())
+ 
 }
